@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import PersonalDetails from './pages/PersonalDetails';
+import WorkoutDetails from './pages/WorkoutDetails';
+import NutrionDetails from './pages/NutrionDetails'; 
+import BodyMeasurementUpload from './pages/BodyMeasurementUpload';
+import ParticipantConsentForm from './pages/ParticipantConsentForm';
+import FitnessResearchInitiative from './pages/FitnessResearchInitiative';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/PersonalDetails" element={<PersonalDetails />} />
+                <Route path="/WorkoutDetails/:documentId" element={<WorkoutDetails />} />
+                <Route path="/NutrionDetails/:documentId" element={<NutrionDetails />} />
+                <Route path="/BodyMeasurementUpload/:documentId" element={<BodyMeasurementUpload />} />
+                <Route path="/ParticipantConsentForm" element={<ParticipantConsentForm />} />
+                <Route path="/FitnessResearchInitiative" element={<FitnessResearchInitiative />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
